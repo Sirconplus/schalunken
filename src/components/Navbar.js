@@ -63,14 +63,11 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/about">
                 About
               </Link>
-              <Link className="navbar-item" to="/podcast">
-                Podcast
-              </Link>
             </div>
             <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                href="https://github.com/Sirconplus/schalunken"
                 target="_blank"
                 rel="noopener noreferrer"
               >
