@@ -2,8 +2,7 @@ import Layout from "../components/Layout";
 
 export const PodcastEpisodeTemplate = ({
         description,
-        title,
-        audiofile
+        title
     }) =>
 {
     return (
@@ -12,7 +11,6 @@ export const PodcastEpisodeTemplate = ({
                             {title}
                         </h1>
                         <p>{description}</p>
-            <p>{audiofile}</p>
         </section>)
 }
 
@@ -24,7 +22,6 @@ const PodcastEpisode = ({ data }) => {
             <PodcastEpisodeTemplate
                 title={post.frontmatter.title}
                 description={post.frontmatter.description}
-                audiofile={post.frontmatter.audiofile}
             />
         </Layout>
     )
@@ -43,7 +40,6 @@ export const pageQuery = graphql`
         title
         description
         tags
-        audiofile
       }
     }
   }
