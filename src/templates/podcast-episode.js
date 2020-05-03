@@ -1,34 +1,33 @@
-import Layout from "../components/Layout";
+import React from 'react'
+import Layout from '../components/Layout'
 
-export const PodcastEpisodeTemplate = ({
-        description,
-        title
-    }) =>
-{
-    return (
-        <section className="section">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            {title}
-                        </h1>
-                        <p>{description}</p>
-        </section>)
+export const PodcastEpisodeTemplate = ({ description, title, audiofile }) => {
+  return (
+    <section className="section">
+      <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+        {title}
+      </h1>
+      <p>{description}</p>
+      <a href={audiofile}>File</a>
+    </section>
+  )
 }
 
 const PodcastEpisode = ({ data }) => {
-    const { markdownRemark: post } = data
+  const { markdownRemark: podcast } = data
 
-    return (
-        <Layout>
-            <PodcastEpisodeTemplate
-                title={post.frontmatter.title}
-                description={post.frontmatter.description}
-            />
-        </Layout>
-    )
+  return (
+    <Layout>
+      <PodcastEpisodeTemplate
+        title={podcast.frontmatter.title}
+        description={podcast.frontmatter.description}
+        audiofile={`/img/${podcast.frontmatter.audiofile.base}`}
+      />
+    </Layout>
+  )
 }
 
 export default PodcastEpisode
-
 
 export const pageQuery = graphql`
   query PodcastEpisodeByID($id: String!) {
@@ -39,7 +38,9 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        tags
+        audiofile {
+          base
+        }
       }
     }
   }
