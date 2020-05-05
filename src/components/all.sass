@@ -113,28 +113,30 @@ $menu-label-color: $white-ter
     display: inline
 
 // blog roll
-.blog-list-item.is-featured
-  background-color: #d6400033;
-.blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
-.blog-list-item .featured-thumbnail
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
+.episode-list-item, .episode-item
+  header
+    margin-bottom: 1em
+    text-align: center
+    p
+      width: 100%
+      margin-bottom: 0
+.episode-list-item, .episode-item
+  audio
+    width: 100%
 
 
 @import "~bulma"
 
 
 // responsiveness
-+tablet-only
-  .blog-list-item .featured-thumbnail
+//+tablet-only
+  .episode-list-item .featured-thumbnail
     flex-basis: 50%;
 
-+mobile
-  .blog-list-item header
+//+mobile
+  .episode-list-item header
     display: block
-  .blog-list-item .featured-thumbnail
+  .episode-list-item .featured-thumbnail
     text-align: center;
     max-width: 70%;
     margin: 0 0 1em;

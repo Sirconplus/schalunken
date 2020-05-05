@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { PodcastEpisodeTemplate } from '../../templates/podcast-episode'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { PodcastEpisodeTemplate } from '../../templates/podcast-episode';
 
 const PodcastEpisodePreview = ({ entry, widgetFor }) => {
   return (
@@ -9,14 +9,14 @@ const PodcastEpisodePreview = ({ entry, widgetFor }) => {
       title={entry.getIn(['data', 'title'])}
       audiofile={entry.getIn(['data', 'audiofile'])}
     />
-  )
-}
+  );
+};
 
 PodcastEpisodePreview.propTypes = {
   entry: PropTypes.shape({
-    getIn: PropTypes.func,
+    getIn: PropTypes.func
   }),
-  widgetFor: PropTypes.func,
-}
+  widgetFor: PropTypes.func
+};
 
-export default PodcastEpisodePreview
+export default PodcastEpisodePreview;
