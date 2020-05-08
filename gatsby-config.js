@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
-    description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.'
+    title: 'Schalunken',
+    description: 'Wir sind Schalunken in Schalunken',
+    siteUrl: `https://new.schalunken.de`
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -62,6 +62,77 @@ module.exports = {
             options: {
               destinationDir: 'static'
             }
+          }
+        ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        setup: (options) => ({
+          ...options,
+          custom_namespaces: {
+            itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+          },
+          custom_elements: [{ 'itunes:author': 'Schalunken' }, { 'itunes:explicit': 'clean' }]
+        }),
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges
+                .filter((edge) => edge.node.frontmatter.templateKey === 'podcast-episode')
+                .map((edge) => {
+                  return Object.assign({}, edge.node.frontmatter, {
+                    description: edge.node.excerpt,
+                    date: edge.node.frontmatter.date,
+                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    enclosure: {
+                      url: site.siteMetadata.siteUrl + '/upload/' + edge.node.frontmatter.audiofile.base,
+                      type: 'audio/mpeg',
+                      length: edge.node.frontmatter.audiofile.size + ''
+                    }
+                  });
+                });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        templateKey
+                        title
+                        date
+                        audiofile {
+                          base
+                          size
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Schalunken Podcast'
           }
         ]
       }
