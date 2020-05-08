@@ -13,8 +13,7 @@ export default class PodcastIndexPage extends React.Component {
             backgroundImage: `url('/img/blog-index.jpg')`
           }}
         >
-
-            <img src={'/img/logo_transparent.png'}/>
+          <img src={'/img/logo_transparent.png'} alt={'Schalunken logo'} />
         </div>
         <section className="section">
           <div className="container">

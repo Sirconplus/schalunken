@@ -26,6 +26,8 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
         <meta property="og:image" content={`${withPrefix('/')}img/og-image.jpg`} />
+
+        <script src="https://kit.fontawesome.com/e197a4ad0d.js" crossOrigin="anonymous" />
       </Helmet>
       <Navbar />
       <div>{children}</div>

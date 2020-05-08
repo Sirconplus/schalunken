@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 import { Link, graphql, StaticQuery } from 'gatsby';
 
 class PodcastRoll extends React.Component {
@@ -22,10 +23,12 @@ class PodcastRoll extends React.Component {
                   <p>
                     <i>{`Posted ${episode.frontmatter.date}`}</i>
                   </p>
+
+                  <a href={`/upload/${episode.frontmatter.audiofile.base}`} download>
+                    <FontAwesome name="download" />
+                  </a>
                 </header>
-                <p className="episode-item-description">
-                  {episode.frontmatter.description}
-                </p>
+                <p className="episode-item-description">{episode.frontmatter.description}</p>
                 <br />
                 <audio controls>
                   <source src={`/upload/${episode.frontmatter.audiofile.base}`} type="audio/mpeg" />

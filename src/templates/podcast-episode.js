@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import { Link } from 'gatsby';
+import FontAwesome from 'react-fontawesome';
 
 export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) => {
   return (
@@ -11,10 +11,11 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
           <p>
             <i>{`Posted ${date}`}</i>
           </p>
+          <a href={`/upload/${audiofile}`} download>
+            <FontAwesome name="download" />
+          </a>
         </header>
-        <p className="episode-item-description">
-          {description}
-        </p>
+        <p className="episode-item-description">{description}</p>
         <audio controls>
           <source src={`/upload/${audiofile}`} type="audio/mpeg" />
           Your browser does not support the audio tag
