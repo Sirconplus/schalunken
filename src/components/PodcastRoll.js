@@ -20,16 +20,15 @@ class PodcastRoll extends React.Component {
                     </Link>
                   </p>
                   <p>
-                    <span>{episode.frontmatter.date}</span>
+                    <i>{`Posted ${episode.frontmatter.date}`}</i>
                   </p>
                 </header>
-                <p>
+                <p className="episode-item-description">
                   {episode.frontmatter.description}
-                  <br />
-                  <br />
                 </p>
+                <br />
                 <audio controls>
-                  <source src={`/img/${episode.frontmatter.audiofile.base}`} type="audio/mpeg" />
+                  <source src={`/upload/${episode.frontmatter.audiofile.base}`} type="audio/mpeg" />
                   Your browser does not support the audio tag
                 </audio>
               </article>

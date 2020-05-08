@@ -13,17 +13,8 @@ export default class PodcastIndexPage extends React.Component {
             backgroundImage: `url('/img/blog-index.jpg')`
           }}
         >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem'
-            }}
-          >
-            Latest Episodes
-          </h1>
+
+            <img src={'/img/logo_transparent.png'}/>
         </div>
         <section className="section">
           <div className="container">
