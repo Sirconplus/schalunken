@@ -36,36 +36,6 @@ module.exports = {
         name: 'images'
       }
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'uploads'
-            }
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 2048
-            }
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              destinationDir: 'static'
-            }
-          }
-        ]
-      }
-    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -92,20 +62,21 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges
-                .filter((edge) => edge.node.frontmatter.templateKey === 'podcast-episode')
-                .map((edge) => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    enclosure: {
-                      url: site.siteMetadata.siteUrl + '/upload/' + edge.node.frontmatter.audiofile.base,
-                      type: 'audio/mpeg',
-                      length: edge.node.frontmatter.audiofile.size + ''
-                    }
+                  .filter((edge) => edge.node.frontmatter.templateKey === 'podcast-episode')
+                  .map((edge) => {
+                    console.log(edge.node.frontmatter.audiofile.size);
+                    return Object.assign({}, edge.node.frontmatter, {
+                      description: edge.node.excerpt,
+                      date: edge.node.frontmatter.date,
+                      url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                      guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                      enclosure: {
+                        url: site.siteMetadata.siteUrl + '/upload/' + edge.node.frontmatter.audiofile.base,
+                        length: `${edge.node.frontmatter.audiofile.size}`,
+                        type: 'audio/mpeg'
+                      }
+                    });
                   });
-                });
             },
             query: `
               {
@@ -133,6 +104,36 @@ module.exports = {
             `,
             output: '/rss.xml',
             title: 'Schalunken Podcast'
+          }
+        ]
+      }
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'uploads'
+            }
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 2048
+            }
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static'
+            }
           }
         ]
       }
