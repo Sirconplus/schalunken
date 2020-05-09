@@ -57,10 +57,37 @@ module.exports = {
             itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd'
           },
           custom_elements: [
-            { 'itunes:author': 'Schalunken' },
-            { 'itunes:email': 'hoerer@schalunken.de' },
+            { 'itunes:author': 'Schalunken in Schalunken' },
+            {
+              'itunes:owner': [
+                { 'itunes:name': 'Schalunken in Schalunken' },
+                { 'itunes:email': 'hoerer@schalunken.de' }
+              ]
+            },
             { 'itunes:explicit': 'clean' },
-            { 'itunes:category': 'Arts & Entertainment' }
+            {
+              'itunes:category': [
+                {
+                  _attr: {
+                    text: 'Arts & Entertainment'
+                  }
+                },
+                {
+                  'itunes:category': {
+                    _attr: {
+                      text: 'Performing Arts'
+                    }
+                  }
+                },
+                {
+                  'itunes:category': {
+                    _attr: {
+                      text: 'Entertainment'
+                    }
+                  }
+                }
+              ]
+            }
           ]
         }),
         feeds: [
