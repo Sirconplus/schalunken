@@ -46,7 +46,6 @@ module.exports = {
                 title
                 description
                 siteUrl
-                site_url: siteUrl
               }
             }
           }
@@ -59,6 +58,7 @@ module.exports = {
           },
           custom_elements: [
             { 'itunes:author': 'Schalunken' },
+            { 'itunes:email': 'hoerer@schalunken.de' },
             { 'itunes:explicit': 'clean' },
             { 'itunes:category': 'Arts & Entertainment' }
           ]
