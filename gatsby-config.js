@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/upload`,
+        path: `${__dirname}/static/podcast`,
         name: 'podcast'
       }
     },
@@ -76,7 +76,7 @@ module.exports = {
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     enclosure: {
-                      url: site.siteMetadata.siteUrl + '/upload/' + base,
+                      url: site.siteMetadata.siteUrl + '/podcast/' + base,
                       size,
                       type: 'audio/mpeg'
                     }

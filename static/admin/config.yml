@@ -8,8 +8,8 @@ backend:
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
-media_folder: static/upload
-public_folder: /upload
+media_folder: static/podcast
+public_folder: /podcast
 
 collections:
   - name: "podcast"

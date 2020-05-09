@@ -11,13 +11,13 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
           <p>
             <i>{`Posted ${date}`}</i>
           </p>
-          <a href={`/upload/${audiofile}`} download>
+          <a href={`/podcast/${audiofile}`} download>
             <FontAwesome name="download" />
           </a>
         </header>
         <p className="episode-item-description">{description}</p>
         <audio controls>
-          <source src={`/upload/${audiofile}`} type="audio/mpeg" />
+          <source src={`/podcast/${audiofile}`} type="audio/mpeg" />
           Your browser does not support the audio tag
         </audio>
       </article>
