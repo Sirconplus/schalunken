@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Schalunken',
     description: 'Wir sind Schalunken in Schalunken',
-    siteUrl: `https://new.schalunken.de`
+    siteUrl: 'https://new.schalunken.de'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -53,30 +53,35 @@ module.exports = {
         `,
         setup: (options) => ({
           ...options,
+          site_url: 'https://new.schalunken.de',
           custom_namespaces: {
             itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd'
           },
-          custom_elements: [{ 'itunes:author': 'Schalunken' }, { 'itunes:explicit': 'clean' }]
+          custom_elements: [
+            { 'itunes:author': 'Schalunken' },
+            { 'itunes:explicit': 'clean' },
+            { 'itunes:category': 'Arts & Entertainment' }
+          ]
         }),
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges
-                  .filter((edge) => edge.node.frontmatter.templateKey === 'podcast-episode')
-                  .map((edge) => {
-                    console.log(edge.node.frontmatter.audiofile.size);
-                    return Object.assign({}, edge.node.frontmatter, {
-                      description: edge.node.excerpt,
-                      date: edge.node.frontmatter.date,
-                      url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                      guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                      enclosure: {
-                        url: site.siteMetadata.siteUrl + '/upload/' + edge.node.frontmatter.audiofile.base,
-                        length: `${edge.node.frontmatter.audiofile.size}`,
-                        type: 'audio/mpeg'
-                      }
-                    });
+                .filter((edge) => edge.node.frontmatter.templateKey === 'podcast-episode')
+                .map((edge) => {
+                  const { base, size } = edge.node.frontmatter.audiofile;
+                  return Object.assign({}, edge.node.frontmatter, {
+                    description: edge.node.excerpt,
+                    date: edge.node.frontmatter.date,
+                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    enclosure: {
+                      url: site.siteMetadata.siteUrl + '/upload/' + base,
+                      size,
+                      type: 'audio/mpeg'
+                    }
                   });
+                });
             },
             query: `
               {
@@ -103,7 +108,8 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Schalunken Podcast'
+            title: 'Schalunken Podcast',
+            language: 'de-DE'
           }
         ]
       }
