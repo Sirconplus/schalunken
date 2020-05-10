@@ -59,6 +59,15 @@ module.exports = {
           custom_elements: [
             { 'itunes:author': 'Schalunken in Schalunken' },
             {
+              'itunes:image': [
+                {
+                  _attr: {
+                    href: 'https://new.schalunken.de/img/icon.png'
+                  }
+                }
+              ]
+            },
+            {
               'itunes:owner': [
                 { 'itunes:name': 'Schalunken in Schalunken' },
                 { 'itunes:email': 'hoerer@schalunken.de' }
@@ -69,14 +78,16 @@ module.exports = {
               'itunes:category': [
                 {
                   _attr: {
-                    text: 'Arts & Entertainment'
+                    text: 'Talk Radio'
                   }
-                },
+                }
+              ]
+            },
+            {
+              'itunes:category': [
                 {
-                  'itunes:category': {
-                    _attr: {
-                      text: 'Performing Arts'
-                    }
+                  _attr: {
+                    text: 'Arts & Entertainment'
                   }
                 },
                 {
@@ -84,6 +95,15 @@ module.exports = {
                     _attr: {
                       text: 'Entertainment'
                     }
+                  }
+                }
+              ]
+            },
+            {
+              'itunes:category': [
+                {
+                  _attr: {
+                    text: 'Comedy'
                   }
                 }
               ]
