@@ -73,7 +73,9 @@ module.exports = {
                 { 'itunes:email': 'hoerer@schalunken.de' }
               ]
             },
-            { 'itunes:explicit': 'clean' },
+            { 'itunes:explicit': 'no' },
+            { 'itunes:type': 'episodic' },
+            { 'itunes:summary': 'Wir treffen uns in der Schalunke' },
             {
               'itunes:category': [
                 {
@@ -118,7 +120,8 @@ module.exports = {
                 .map((edge) => {
                   const { base, size } = edge.node.frontmatter.audiofile;
                   return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
+                    description: edge.node.frontmatter.description,
+                    title: edge.node.frontmatter.title,
                     date: edge.node.frontmatter.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -126,7 +129,15 @@ module.exports = {
                       url: site.siteMetadata.siteUrl + '/podcast/' + base,
                       size,
                       type: 'audio/mpeg'
-                    }
+                    },
+                    custom_elements: [
+                      { 'itunes:title': edge.node.frontmatter.title },
+                      { 'itunes:subtitle': edge.node.frontmatter.subtitle },
+                      { 'itunes:summary': edge.node.frontmatter.summary },
+                      { 'itunes:explicit': 'no' },
+                      {
+                        'itunes:author': 'Schalunken'
+                      }]
                   });
                 });
             },
@@ -143,7 +154,10 @@ module.exports = {
                       frontmatter {
                         templateKey
                         title
+                        subtitle
+                        summary
                         date
+                        description
                         audiofile {
                           base
                           size
