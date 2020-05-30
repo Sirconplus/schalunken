@@ -11,7 +11,7 @@ $body-color: #333
 $black: #2b2523
 
 .navbar .navbar-menu
-  box-shadow:none !important
+  box-shadow: none !important
 
 .content .taglist
   list-style: none
@@ -56,7 +56,6 @@ $black: #2b2523
 .btn
     display: inline-block
     padding: 12px 16px 10px
-    font-size: 18px
     font-size: 1rem
     line-height: 1.25
     background-color: #fff
@@ -72,6 +71,8 @@ $black: #2b2523
 
 .episode-item-description
   text-align: center
+  p
+    margin-bottom: 1em
 
 .margin-top-0
   margin-top: 0 !important
@@ -86,7 +87,7 @@ $black: #2b2523
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
-  padding: 3rem 0rem 0rem
+  padding: 3rem 0 0
   background-color: transparent
 
 //Menu overrides
@@ -98,13 +99,22 @@ $menu-item-active-background-color:	$kaldi-red-invert
 $menu-list-border-left: 1px solid $kaldi-red-invert
 $menu-label-color: $white-ter
 
-
-.menu-label
-  font-size: 1em !important
-  text-align: left
-.menu-list
+.content ul.footer-list
+  margin: 0
   list-style: none !important
-  text-align: left
+  text-align: center
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: center
+
+.footer-list li
+  width: 33%
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+
 .social
   padding: 2em
 .social a
@@ -138,10 +148,6 @@ $menu-label-color: $white-ter
   .episode-list-item .featured-thumbnail
     flex-basis: 50%;
 
-//+mobile
-  .episode-list-item header
-    display: block
-  .episode-list-item .featured-thumbnail
-    text-align: center;
-    max-width: 70%;
-    margin: 0 0 1em;
++mobile
+  .content ul.footer-list
+    flex-direction: column
