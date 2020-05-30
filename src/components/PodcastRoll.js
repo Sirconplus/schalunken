@@ -28,7 +28,7 @@ class PodcastRoll extends React.Component {
                     <FontAwesome name="download" />
                   </a>
                 </header>
-                <p className="episode-item-description">{episode.frontmatter.description}</p>
+                <div className="episode-item-description" dangerouslySetInnerHTML={{__html: episode.fields.descriptionHtml}}/>
                 <br />
                 <audio controls>
                   <source src={`/podcast/${episode.frontmatter.audiofile.base}`} type="audio/mpeg" />
@@ -63,6 +63,7 @@ export default () => (
               id
               fields {
                 slug
+                descriptionHtml
               }
               frontmatter {
                 title

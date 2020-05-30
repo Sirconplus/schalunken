@@ -1,3 +1,6 @@
+const remark = require('remark');
+const remarkHTML = require('remark-html');
+
 const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
@@ -79,5 +82,23 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value
     });
+  }
+
+  if (!node.frontmatter || !node.frontmatter.templateKey || node.frontmatter.templateKey !== 'podcast-episode') {
+    return;
+  }
+
+  const markdownFields = ['description', 'title', 'subtitle', 'summary'];
+
+  for (const field of markdownFields) {
+    if (node.frontmatter[field]) {
+      const value = remark().use(remarkHTML).processSync(node.frontmatter[field]).toString();
+
+      createNodeField({
+        name: `${field}Html`,
+        node,
+        value
+      });
+    }
   }
 };

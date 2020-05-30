@@ -137,7 +137,8 @@ module.exports = {
                       { 'itunes:explicit': 'no' },
                       {
                         'itunes:author': 'Schalunken'
-                      }]
+                      }
+                    ]
                   });
                 });
             },

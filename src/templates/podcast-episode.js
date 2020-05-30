@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import FontAwesome from 'react-fontawesome';
+import { graphql } from 'gatsby';
 
 export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) => {
   return (
@@ -15,7 +16,7 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
             <FontAwesome name="download" />
           </a>
         </header>
-        <p className="episode-item-description">{description}</p>
+        <div className="episode-item-description" dangerouslySetInnerHTML={{__html: description}}/>
         <audio controls>
           <source src={`/podcast/${audiofile}`} type="audio/mpeg" />
           Your browser does not support the audio tag
@@ -32,7 +33,7 @@ const PodcastEpisode = ({ data }) => {
     <Layout>
       <PodcastEpisodeTemplate
         title={podcast.frontmatter.title}
-        description={podcast.frontmatter.description}
+        description={podcast.fields.descriptionHtml}
         date={podcast.frontmatter.date}
         audiofile={`/upload/${podcast.frontmatter.audiofile.base}`}
       />
@@ -47,6 +48,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        descriptionHtml
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
