@@ -12,13 +12,13 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
           <p>
             <i>{`Posted ${date}`}</i>
           </p>
-          <a href={`/podcast/${audiofile}`} download>
+          <a href={audiofile} download>
             <FontAwesome name="download" />
           </a>
         </header>
         <div className="episode-item-description" dangerouslySetInnerHTML={{__html: description}}/>
         <audio controls>
-          <source src={`/podcast/${audiofile}`} type="audio/mpeg" />
+          <source src={audiofile} type="audio/mpeg" />
           Your browser does not support the audio tag
         </audio>
       </article>
@@ -35,7 +35,7 @@ const PodcastEpisode = ({ data }) => {
         title={podcast.frontmatter.title}
         description={podcast.fields.descriptionHtml}
         date={podcast.frontmatter.date}
-        audiofile={`/upload/${podcast.frontmatter.audiofile.base}`}
+        audiofile={`/podcast/${podcast.frontmatter.audiofile.base}`}
       />
     </Layout>
   );
