@@ -33,6 +33,7 @@
     "react-helmet": "^6.0.0",
     "remark": "^12.0.0",
     "remark-html": "^11.0.2",
+    "showdown": "^1.9.1",
     "uuid": "^7.0.0"
   },
   "keywords": [
