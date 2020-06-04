@@ -15,9 +15,6 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
           <a href={audiofile} download>
             <FontAwesome name="download" />
           </a>
-          <a href={audiofile} download>
-            <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
-          </a>
         </header>
         <div className="episode-item-description" dangerouslySetInnerHTML={{ __html: description }} />
         <audio controls>
