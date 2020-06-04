@@ -34,7 +34,7 @@
     "remark": "^12.0.0",
     "remark-html": "^11.0.2",
     "showdown": "^1.9.1",
-    "uuid": "^7.0.0"
+    "uuid": "^7.0.3"
   },
   "keywords": [
     "gatsby"
@@ -45,7 +45,7 @@
     "clean": "gatsby clean",
     "start": "npm run develop",
     "build": "npm run clean && gatsby build",
-    "develop": "npm run clean && gatsby develop",
+    "dev": "npm run clean && gatsby develop",
     "format": "prettier --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

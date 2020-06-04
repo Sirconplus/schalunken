@@ -19,7 +19,7 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
             <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
           </a>
         </header>
-        <div className="episode-item-description" dangerouslySetInnerHTML={{__html: description}}/>
+        <div className="episode-item-description" dangerouslySetInnerHTML={{ __html: description }} />
         <audio controls>
           <source src={audiofile} type="audio/mpeg" />
           Your browser does not support the audio tag

@@ -1,6 +1,6 @@
 import React from 'react';
 import { PodcastEpisodeTemplate } from '../../templates/podcast-episode';
-import showdown from 'showdown'
+import showdown from 'showdown';
 
 const converter = new showdown.Converter();
 
