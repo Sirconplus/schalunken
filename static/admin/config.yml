@@ -25,4 +25,3 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Audio file", name: "audiofile", widget: file}
-      - {label: "ID (ignore it)", name: "id", widget: "id"}
