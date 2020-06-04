@@ -10,7 +10,7 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
         <header>
           <p className="title has-text-primary is-size-4">{title}</p>
           <p>
-            <i>{`Posted ${date}`}</i>
+            <i>{`Veröffentlicht am ${date}`}</i>
           </p>
           <a href={audiofile} download>
             <FontAwesome name="download" />
