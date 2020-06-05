@@ -33,8 +33,7 @@
     "react-helmet": "^6.0.0",
     "remark": "^12.0.0",
     "remark-html": "^11.0.2",
-    "showdown": "^1.9.1",
-    "uuid": "^7.0.3"
+    "showdown": "^1.9.1"
   },
   "keywords": [
     "gatsby"
@@ -43,10 +42,10 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "build": "npm run clean && gatsby build",
     "dev": "npm run clean && gatsby develop",
-    "format": "prettier --write \"{gatsby-*.js,src/**/*.js}\"",
+    "format": "prettier --write \"{gatsby-*.js,src/**/*.{js,jsx}}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
