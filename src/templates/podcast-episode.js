@@ -2,8 +2,9 @@ import React from 'react';
 import Layout from '../components/Layout';
 import FontAwesome from 'react-fontawesome';
 import { graphql } from 'gatsby';
+import CommentForm from '../components/CommentForm';
 
-export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) => {
+export const PodcastEpisodeTemplate = ({ description, title, audiofile, date, id }) => {
   return (
     <div className="episode-item is-parent column is-12">
       <article>
@@ -22,6 +23,7 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date }) 
           Your browser does not support the audio tag
         </audio>
       </article>
+      <CommentForm id={id} />
     </div>
   );
 };
@@ -36,6 +38,7 @@ const PodcastEpisode = ({ data }) => {
         description={podcast.fields.descriptionHtml}
         date={podcast.frontmatter.date}
         audiofile={`/podcast/${podcast.frontmatter.audiofile.base}`}
+        id={podcast.frontmatter.id}
       />
     </Layout>
   );
@@ -55,6 +58,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        id
         audiofile {
           base
         }

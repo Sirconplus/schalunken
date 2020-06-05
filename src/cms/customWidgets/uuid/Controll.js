@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import crypto from "crypto";
+import crypto from 'crypto';
 
 export default class UuidWidget extends React.Component {
   static propTypes = {
@@ -16,7 +16,7 @@ export default class UuidWidget extends React.Component {
 
   render() {
     if (this.props.value === undefined || this.props.value === '') {
-      this.props.value = crypto.randomBytes(16).toString("hex");
+      this.props.value = crypto.randomBytes(16).toString('hex');
     }
 
     return (

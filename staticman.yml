@@ -1,0 +1,16 @@
+comments:
+  allowedFields: ["name", "message", "email"]
+  branch: "master"
+  commitMessage: "Add Comment on '{options.title}'"
+  filename: "{options.id}-{@timestamp}"
+  format: "yaml"
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "timestamp"
+    type: "comment"
+  moderation: true
+  name: "www.schalunken.de"
+  path: "src/comments"
+  requiredFields: ["name", "message"]
