@@ -23,7 +23,7 @@ export const PodcastEpisodeTemplate = ({ description, title, audiofile, date, id
           Your browser does not support the audio tag
         </audio>
       </article>
-      <CommentForm id={id} />
+      <CommentForm id={id} title={title} />
     </div>
   );
 };
