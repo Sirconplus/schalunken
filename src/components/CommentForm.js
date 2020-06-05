@@ -15,7 +15,7 @@ const CommentForm = (props) => {
         Message
       </label>
       <label>
-        <textarea name="fields[email]" />E mail
+        <input type="email" name="fields[contact]" />E mail
       </label>
       <button type="submit">Go!</button>
     </form>
