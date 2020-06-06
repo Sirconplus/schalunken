@@ -3,8 +3,8 @@ import { Link } from 'gatsby';
 import github from '../img/github-icon.svg';
 import icon from '../img/beer-icon.svg';
 
-const Navbar = class extends React.Component {
-  constructor(props) {
+class Navbar extends React.Component<any, { active: boolean; navBarActiveClass: string }> {
+  constructor(props: any) {
     super(props);
     this.state = {
       active: false,
@@ -12,27 +12,24 @@ const Navbar = class extends React.Component {
     };
   }
 
-  toggleHamburger = () => {
+  toggleHamburger = (): void => {
     // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active'
-            })
-          : this.setState({
-              navBarActiveClass: ''
-            });
-      }
-    );
+    const { active } = this.state;
+    if (active) {
+      this.setState({
+        active: !active,
+        navBarActiveClass: ''
+      });
+    } else {
+      this.setState({
+        active: !active,
+        navBarActiveClass: 'is-active'
+      });
+    }
   };
 
-  render() {
+  render(): JSX.Element {
+    const { navBarActiveClass } = this.state;
     return (
       <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
         <div className="container">
@@ -41,17 +38,22 @@ const Navbar = class extends React.Component {
               <img src={icon} alt="Schalunken" style={{ width: '88px' }} />
             </Link>
             {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+            <button
+              type="button"
+              className={`navbar-burger burger ${navBarActiveClass}`}
               data-target="navMenu"
               onClick={this.toggleHamburger}
+              onKeyDown={(e) => {
+                if (e.keyCode !== 13) return;
+                this.toggleHamburger();
+              }}
             >
               <span />
               <span />
               <span />
-            </div>
+            </button>
           </div>
-          <div id="navMenu" className={`navbar-menu ${this.state.navBarActiveClass}`}>
+          <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
             <div className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/about">
                 About
@@ -74,6 +76,6 @@ const Navbar = class extends React.Component {
       </nav>
     );
   }
-};
+}
 
 export default Navbar;
