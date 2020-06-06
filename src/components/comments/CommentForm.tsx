@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledCommentForm } from './CommentForm.styles';
 
 interface CommentFormProps {
   title: string;
@@ -8,23 +9,27 @@ interface CommentFormProps {
 const CommentForm: React.FC<CommentFormProps> = (props) => {
   const { title, id } = props;
   return (
-    <form method="POST" action="https://niklsstaticman.herokuapp.com/v2/entry/Sirconplus/schalunken/master/comments">
+    <StyledCommentForm
+      method="POST"
+      action="https://niklsstaticman.herokuapp.com/v2/entry/Sirconplus/schalunken/master/comments"
+    >
       <input name="options[redirect]" type="hidden" value="http://localhost:8000/thanksforposting" />
       <input name="options[title]" type="hidden" value={title} />
-      <input name="options[id]" type="hidden" value={id} />
+      <input name="options[episode]" type="hidden" value={id} />
       <label>
-        <input name="fields[name]" type="text" required />
         Name
+        <input name="fields[name]" type="text" required />
       </label>
       <label>
+        Kommentar
         <textarea name="fields[message]" required />
-        Message
       </label>
       <label>
-        <input type="email" name="fields[contact]" />E mail
+        E mail
+        <input type="email" name="fields[contact]" />
       </label>
-      <button type="submit">Go!</button>
-    </form>
+      <button type="submit">Schicken</button>
+    </StyledCommentForm>
   );
 };
 

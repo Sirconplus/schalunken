@@ -1,15 +1,18 @@
 import React from 'react';
 import { withPrefix } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import './all.sass';
-import useSiteMetadata from './SiteMetadata';
+import { Global } from '@emotion/core';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import '../components/all.sass';
+import useSiteMetadata from '../components/SiteMetadata';
+import { globalStyleResetCss, StyledDefaultLayout } from './defaultStyles';
 
-const TemplateWrapper: React.FC = ({ children }) => {
+const DefaultLayout: React.FC = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <>
+      <Global styles={globalStyleResetCss} />
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -29,11 +32,13 @@ const TemplateWrapper: React.FC = ({ children }) => {
 
         <script src="https://kit.fontawesome.com/e197a4ad0d.js" crossOrigin="anonymous" />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
-    </div>
+      <StyledDefaultLayout>
+        <Navbar />
+        <div>{children}</div>
+        <Footer />
+      </StyledDefaultLayout>
+    </>
   );
 };
 
-export default TemplateWrapper;
+export default DefaultLayout;

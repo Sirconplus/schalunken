@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
+import Layout from '../layout/default';
 import Content, { HTMLContent } from '../components/Content';
 
 interface AboutPageTemplateProps {

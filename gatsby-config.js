@@ -33,10 +33,18 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/comments`,
+        name: 'comments'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/img`,
         name: 'images'
       }
     },
+    'gatsby-transformer-yaml',
     {
       resolve: `gatsby-plugin-feed`,
       options: {

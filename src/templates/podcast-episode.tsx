@@ -1,11 +1,12 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import CommentForm from '../components/CommentForm';
+import Layout from '../layout/default';
+import CommentSection from '../components/comments/CommentSection';
 
 interface PodcastEpisodeTemplateProps {
-  description: string;
+  summary: string;
+  description?: string;
   title: string;
   audiofile: string;
   date: string;
@@ -15,7 +16,8 @@ export const PodcastEpisodeTemplate: React.FC = ({
   description,
   title,
   audiofile,
-  date
+  date,
+  summary
 }: PodcastEpisodeTemplateProps) => {
   return (
     <article>
@@ -28,12 +30,17 @@ export const PodcastEpisodeTemplate: React.FC = ({
           <FontAwesome name="download" />
         </a>
       </header>
-      <div className="episode-item-description" dangerouslySetInnerHTML={{ __html: description }} />
+      <div className="episode-item-summary" dangerouslySetInnerHTML={{ __html: summary }} />
       <audio controls>
         <source src={audiofile} type="audio/mpeg" />
         <track default kind="captions" />
         Your browser does not support the audio tag
       </audio>
+      {description ? (
+        <div className="episode-item-description" dangerouslySetInnerHTML={{ __html: description }} />
+      ) : (
+        <></>
+      )}
     </article>
   );
 };
@@ -47,11 +54,12 @@ const PodcastEpisode: React.FC = ({ data }: { data: PodcastEpisodeByIDQuery }) =
         <PodcastEpisodeTemplate
           title={podcast.frontmatter.title}
           description={podcast.fields.descriptionHtml}
+          summary={podcast.fields.summaryHtml}
           date={podcast.frontmatter.date}
           audiofile={`/podcast/${podcast.frontmatter.audiofile.base}`}
         />
       </div>
-      <CommentForm id={podcast.frontmatter.id} title={podcast.frontmatter.title} />
+      <CommentSection id={podcast.frontmatter.id} title={podcast.frontmatter.title} />
     </Layout>
   );
 };
@@ -64,11 +72,11 @@ interface PodcastEpisodeByIDQuery {
     html: string;
     fields: {
       descriptionHtml: string;
+      summaryHtml: string;
     };
     frontmatter: {
       date: string;
       title: string;
-      description: string;
       id: string;
       audiofile: {
         base: string;
@@ -84,11 +92,11 @@ export const pageQuery = graphql`
       html
       fields {
         descriptionHtml
+        summaryHtml
       }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        description
         id
         audiofile {
           base

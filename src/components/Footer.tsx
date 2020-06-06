@@ -12,26 +12,24 @@ const Footer: React.FC = () => {
       </div>
       <div className="content has-text-centered has-background-black has-text-white-ter">
         <div className="container has-background-black has-text-white-ter">
-          <div className="columns">
-            <div className="column is-12">
-              <ul className="footer-list">
-                <li>
-                  <Link to="/" className="navbar-item">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/about">
-                    <span>About</span>
-                  </Link>
-                </li>
-                <li>
-                  <a title="twitter" href="https://twitter.com/schalunken">
-                    <img className="fas fa-lg" src={twitter} alt="Twitter" style={{ width: '1em', height: '1em' }} />
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div>
+            <ul className="footer-list">
+              <li>
+                <Link to="/" className="navbar-item">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link className="navbar-item" to="/about">
+                  <span>About</span>
+                </Link>
+              </li>
+              <li>
+                <a title="twitter" href="https://twitter.com/schalunken">
+                  <img className="fas fa-lg" src={twitter} alt="Twitter" style={{ width: '1em', height: '1em' }} />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

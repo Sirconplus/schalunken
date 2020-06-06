@@ -9,6 +9,7 @@ const PodcastEpisodePreview: React.FC = ({ entry }: { getIn: (any) => string }) 
     <div className="episode-item is-parent column is-12">
       <PodcastEpisodeTemplate
         description={converter.makeHtml(entry.getIn(['data', 'description']))}
+        summary={converter.makeHtml(entry.getIn(['data', 'summary']))}
         title={entry.getIn(['data', 'title'])}
         audiofile={entry.getIn(['data', 'audiofile'])}
       />
