@@ -2,7 +2,7 @@ import React from 'react';
 
 import Layout from '../layout/default';
 import PodcastRoll from '../components/PodcastRoll';
-import { StyledImageContainer } from './index.styles';
+import { StyledImageContainer } from '../styles/index.styles';
 
 const PodcastIndexPage: React.FC = () => {
   return (

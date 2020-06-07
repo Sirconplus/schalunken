@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors } from '../../constants/variables';
+import { colors } from '../../styles/constants/variables';
 
 export const StyledComment = styled.div`
   display: flex;
