@@ -59,7 +59,7 @@ const PodcastEpisode: React.FC = ({ data }: { data: PodcastEpisodeByIDQuery }) =
           audiofile={`/podcast/${podcast.frontmatter.audiofile.base}`}
         />
       </div>
-      <CommentSection id={podcast.frontmatter.id} title={podcast.frontmatter.title} />
+      <CommentSection id={podcast.frontmatter.id} title={podcast.frontmatter.title} slug={podcast.fields.slug} />
     </Layout>
   );
 };
@@ -73,6 +73,7 @@ interface PodcastEpisodeByIDQuery {
     fields: {
       descriptionHtml: string;
       summaryHtml: string;
+      slug: string;
     };
     frontmatter: {
       date: string;
@@ -93,6 +94,7 @@ export const pageQuery = graphql`
       fields {
         descriptionHtml
         summaryHtml
+        slug
       }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
