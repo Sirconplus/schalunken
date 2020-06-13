@@ -129,7 +129,7 @@ module.exports = {
                 .map((edge) => {
                   const { base, size } = edge.node.frontmatter.audiofile;
                   return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.frontmatter.description,
+                    description: edge.node.frontmatter.summary,
                     title: edge.node.frontmatter.title,
                     date: edge.node.frontmatter.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
