@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Schalunken',
     description: 'Wir sind Schalunken in Schalunken',
-    siteUrl: 'https://new.schalunken.de'
+    siteUrl: 'https://www.schalunken.de'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -61,24 +61,24 @@ module.exports = {
         `,
         setup: (options) => ({
           ...options,
-          site_url: 'https://new.schalunken.de',
+          site_url: 'https://www.schalunken.de',
           custom_namespaces: {
             itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd'
           },
           custom_elements: [
-            { 'itunes:author': 'Schalunken in Schalunken' },
+            { 'itunes:author': 'Schalunken' },
             {
               'itunes:image': [
                 {
                   _attr: {
-                    href: 'https://new.schalunken.de/img/icon.png'
+                    href: 'https://www.schalunken.de/img/icon.png'
                   }
                 }
               ]
             },
             {
               'itunes:owner': [
-                { 'itunes:name': 'Schalunken in Schalunken' },
+                { 'itunes:name': 'Schalunken' },
                 { 'itunes:email': 'hoerer@schalunken.de' }
               ]
             },
@@ -89,22 +89,13 @@ module.exports = {
               'itunes:category': [
                 {
                   _attr: {
-                    text: 'Talk Radio'
-                  }
-                }
-              ]
-            },
-            {
-              'itunes:category': [
-                {
-                  _attr: {
-                    text: 'Arts & Entertainment'
+                    text: 'Comedy'
                   }
                 },
                 {
                   'itunes:category': {
                     _attr: {
-                      text: 'Entertainment'
+                      text: 'Improv'
                     }
                   }
                 }
@@ -114,7 +105,7 @@ module.exports = {
               'itunes:category': [
                 {
                   _attr: {
-                    text: 'Comedy'
+                    text: 'TV &amp; Film'
                   }
                 }
               ]
@@ -179,7 +170,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Schalunken Podcast',
+            title: 'Schalunken in Schalunken',
             language: 'de-DE'
           }
         ]
