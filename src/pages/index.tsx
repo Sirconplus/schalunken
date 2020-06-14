@@ -8,7 +8,7 @@ const PodcastIndexPage: React.FC = () => {
   return (
     <Layout>
       <StyledImageContainer>
-        <img src="/img/logo_transparent.png" alt="Schalunken logo" />
+        <img src="/img/Schalunkenbanner.png" alt="Schalunken banner" />
       </StyledImageContainer>
       <section className="section">
         <div className="container">

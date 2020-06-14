@@ -12,5 +12,6 @@ export const StyledImageContainer = styled.div`
   align-items: center;
   img {
     max-height: 400px;
+    padding: 10px 0;
   }
 `;
