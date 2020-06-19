@@ -77,10 +77,7 @@ module.exports = {
               ]
             },
             {
-              'itunes:owner': [
-                { 'itunes:name': 'Schalunken' },
-                { 'itunes:email': 'hoerer@schalunken.de' }
-              ]
+              'itunes:owner': [{ 'itunes:name': 'Schalunken' }, { 'itunes:email': 'hoerer@schalunken.de' }]
             },
             { 'itunes:explicit': 'no' },
             { 'itunes:type': 'episodic' },

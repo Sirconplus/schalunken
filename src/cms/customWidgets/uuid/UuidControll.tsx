@@ -15,6 +15,15 @@ export default class UuidControl extends React.PureComponent<UuidWidgetProps> {
       this.props.onChange(crypto.randomBytes(16).toString('hex'));
     }
     const { forID, classNameWrapper } = this.props;
-    return <input id={forID} className={classNameWrapper} type="text" value={value} onChange={e => this.props.onChange(e.target.value)} disabled />;
+    return (
+      <input
+        id={forID}
+        className={classNameWrapper}
+        type="text"
+        value={value}
+        onChange={(e) => this.props.onChange(e.target.value)}
+        disabled
+      />
+    );
   }
 }
