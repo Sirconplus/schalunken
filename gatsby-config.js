@@ -66,7 +66,7 @@ module.exports = {
             itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd'
           },
           custom_elements: [
-            { 'itunes:author': 'Schalunken' },
+            { 'itunes:author': 'Schalunken in Schalunken' },
             {
               'itunes:image': [
                 {
