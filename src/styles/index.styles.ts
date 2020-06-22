@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const StyledImageContainer = styled.div`
-  background-image: url('/img/blog-index.jpg');
+  background-image: url('/img/blog-index.png');
   width: 100%;
   height: 400px;
   position: relative;
