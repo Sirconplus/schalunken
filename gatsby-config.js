@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Schalunken',
-    description: 'Wir sind Schalunken in Schalunken',
+    description: 'Schalunken, das sind Halunken in Spelunken (oder Spelunken für Halunken) - aber es sind auch Rafael & Miguel und in ihrer Schalunke wird nicht nur Bier verzapft. ',
     siteUrl: 'https://www.schalunken.de'
   },
   plugins: [
@@ -71,17 +71,17 @@ module.exports = {
               'itunes:image': [
                 {
                   _attr: {
-                    href: 'https://www.schalunken.de/img/icon.png'
+                    href: 'https://www.schalunken.de/img/schalunkencover.png'
                   }
                 }
               ]
             },
             {
-              'itunes:owner': [{ 'itunes:name': 'Schalunken' }, { 'itunes:email': 'hoerer@schalunken.de' }]
+              'itunes:owner': [{ 'itunes:name': 'Schalunken' }, { 'itunes:email': 'schalunken@schalunken.de' }]
             },
-            { 'itunes:explicit': 'no' },
+            { 'itunes:explicit': 'yes' },
             { 'itunes:type': 'episodic' },
-            { 'itunes:summary': 'Wir treffen uns in der Schalunke' },
+            { 'itunes:summary': 'Schalunken, das sind Halunken in Spelunken (oder Spelunken für Halunken) - aber es sind auch Rafael und Miguel und in ihrer Schalunke wird nicht nur Bier verzapft.' },
             {
               'itunes:category': [
                 {
@@ -131,7 +131,7 @@ module.exports = {
                       { 'itunes:title': edge.node.frontmatter.title },
                       { 'itunes:subtitle': edge.node.frontmatter.subtitle },
                       { 'itunes:summary': edge.node.frontmatter.summary },
-                      { 'itunes:explicit': 'no' },
+                      { 'itunes:explicit': 'yes' },
                       {
                         'itunes:author': 'Schalunken'
                       }
