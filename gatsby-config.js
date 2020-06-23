@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Schalunken',
-    description: 'Schalunken, das sind Halunken in Spelunken (oder Spelunken für Halunken) - aber es sind auch Rafael & Miguel und in ihrer Schalunke wird nicht nur Bier verzapft. ',
+    description:
+      'Schalunken, das sind Halunken in Spelunken (oder Spelunken für Halunken) - aber es sind auch Rafael & Miguel und in ihrer Schalunke wird nicht nur Bier verzapft. ',
     siteUrl: 'https://www.schalunken.de'
   },
   plugins: [
@@ -71,7 +72,7 @@ module.exports = {
               'itunes:image': [
                 {
                   _attr: {
-                    href: 'https://www.schalunken.de/img/schalunkencover.png'
+                    href: 'https://www.schalunken.de/img/Schalunkencover.png'
                   }
                 }
               ]
@@ -81,7 +82,9 @@ module.exports = {
             },
             { 'itunes:explicit': 'yes' },
             { 'itunes:type': 'episodic' },
-            { 'itunes:summary': 'Schalunken, das sind Halunken in Spelunken (oder Spelunken für Halunken) - aber es sind auch Rafael und Miguel und in ihrer Schalunke wird nicht nur Bier verzapft.' },
+            {
+              'itunes:summary': options.query.site.siteMetadata.description
+            },
             {
               'itunes:category': [
                 {

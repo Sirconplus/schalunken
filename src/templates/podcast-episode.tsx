@@ -50,16 +50,18 @@ const PodcastEpisode: React.FC = ({ data }: { data: PodcastEpisodeByIDQuery }) =
 
   return (
     <Layout>
-      <div className="episode-item is-parent column is-12">
-        <PodcastEpisodeTemplate
-          title={podcast.frontmatter.title}
-          description={podcast.fields.descriptionHtml}
-          summary={podcast.fields.summaryHtml}
-          date={podcast.frontmatter.date}
-          audiofile={`/podcast/${podcast.frontmatter.audiofile.base}`}
-        />
+      <div className="container">
+        <div className="episode-item">
+          <PodcastEpisodeTemplate
+            title={podcast.frontmatter.title}
+            description={podcast.fields.descriptionHtml}
+            summary={podcast.fields.summaryHtml}
+            date={podcast.frontmatter.date}
+            audiofile={`/podcast/${podcast.frontmatter.audiofile.base}`}
+          />
+        </div>
+        <CommentSection id={podcast.frontmatter.id} title={podcast.frontmatter.title} slug={podcast.fields.slug} />
       </div>
-      <CommentSection id={podcast.frontmatter.id} title={podcast.frontmatter.title} slug={podcast.fields.slug} />
     </Layout>
   );
 };

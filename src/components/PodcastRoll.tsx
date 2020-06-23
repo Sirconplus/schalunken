@@ -18,10 +18,10 @@ const PodcastRoll: React.FC<PodcastRollProps> = (props) => {
   const { edges: episodes } = data.allMarkdownRemark;
 
   return (
-    <div className="columns is-multiline">
+    <div>
       {episodes &&
         episodes.map(({ node: episode }) => (
-          <div className="episode-list-item is-parent column is-12" key={episode.id}>
+          <div className="episode-list-item is-parent" key={episode.id}>
             <PodcastEpisodeTemplate
               title={
                 <Link className="title has-text-primary is-size-4" to={episode.fields.slug}>
