@@ -16,7 +16,7 @@ const CommentForm: React.FC<CommentFormProps> = (props) => {
     >
       <input name="options[redirect]" type="hidden" value={`${slug}#commented`} />
       <input name="options[title]" type="hidden" value={title} />
-      <input name="options[episode]" type="hidden" value={id} />
+      <input name="fields[episode]" type="hidden" value={id} />
       <label>
         Name*
         <input name="fields[name]" type="text" required />
