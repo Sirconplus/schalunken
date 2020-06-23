@@ -10,6 +10,7 @@ comments:
       options:
         format: "timestamp"
     type: "comment"
+    episode: "{options.episode}"
   moderation: true
   name: "www.schalunken.de"
   path: "src/comments"
