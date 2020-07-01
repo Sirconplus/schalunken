@@ -3,6 +3,7 @@ import FontAwesome from 'react-fontawesome';
 import { graphql } from 'gatsby';
 import Layout from '../layout/default';
 import CommentSection from '../components/comments/CommentSection';
+import { RoundEdgeContainer } from '../styles/index.styles';
 
 interface PodcastEpisodeTemplateProps {
   summary: string;
@@ -20,6 +21,7 @@ export const PodcastEpisodeTemplate: React.FC = ({
   summary
 }: PodcastEpisodeTemplateProps) => {
   return (
+  <RoundEdgeContainer>
     <article>
       <header>
         <p className="title has-text-primary is-size-4">{title}</p>
@@ -27,21 +29,22 @@ export const PodcastEpisodeTemplate: React.FC = ({
           <i>{`Veröffentlicht am ${date}`}</i>
         </p>
         <a href={audiofile} download>
-          <FontAwesome name="download" />
+          <img border="0" alt="Schalunken Cover" src="/img/schalunkencover.png" width="300px" height="300px"></img>
         </a>
       </header>
-      <div className="episode-item-summary" dangerouslySetInnerHTML={{ __html: summary }} />
       <audio controls>
         <source src={audiofile} type="audio/mpeg" />
         <track default kind="captions" />
         Your browser does not support the audio tag
       </audio>
+      <div className="episode-item-summary" dangerouslySetInnerHTML={{ __html: summary }} />
       {description ? (
         <div className="episode-item-description" dangerouslySetInnerHTML={{ __html: description }} />
       ) : (
         <></>
       )}
     </article>
+      </RoundEdgeContainer>
   );
 };
 
@@ -99,7 +102,7 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD.MM.YYYY")
         title
         id
         audiofile {

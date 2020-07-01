@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import { PodcastEpisodeTemplate } from '../templates/podcast-episode';
+import { RoundEdgeContainer } from '../styles/index.styles';
 
 interface PodcastRollProps {
   count: number;
@@ -18,10 +19,12 @@ const PodcastRoll: React.FC<PodcastRollProps> = (props) => {
   const { edges: episodes } = data.allMarkdownRemark;
 
   return (
+
     <div>
       {episodes &&
         episodes.map(({ node: episode }) => (
           <div className="episode-list-item is-parent" key={episode.id}>
+
             <PodcastEpisodeTemplate
               title={
                 <Link className="title has-text-primary is-size-4" to={episode.fields.slug}>
@@ -73,7 +76,7 @@ export default (): React.Component => (
               frontmatter {
                 title
                 templateKey
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "DD.MM.YYYY")
                 summary
                 audiofile {
                   base

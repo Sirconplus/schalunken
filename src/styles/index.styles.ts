@@ -14,4 +14,21 @@ export const StyledImageContainer = styled.div`
     max-height: 400px;
     padding: 10px 0;
   }
+
+
+`;
+
+export const RoundEdgeContainer = styled.div`
+  background-color: #ffeeaa;
+  width: 100%;
+  height: auto;
+  display: flex;
+  border-radius: 50px 0px 50px 0px;
+  border: 3px solid #c87137;
+  margin-bottom: 40px;
+  padding: 25px;
+  color: #8c54a1;
+  }
+
+
 `;

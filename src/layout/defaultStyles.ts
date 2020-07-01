@@ -14,7 +14,7 @@ export const globalStyleResetCss = css`
   body {
     min-height: 100vh;
     background-color: #aea1ea;
-    background-image: url("..\img\backgroundpattern_transparent.png");
+    background-image: url("../img/backgroundpattern.png");
   }
 `;
 
