@@ -13,6 +13,8 @@ export const globalStyleResetCss = css`
   html,
   body {
     min-height: 100vh;
+    background-color: #aea1ea;
+    background-image: url("..\img\backgroundpattern_transparent.png");
   }
 `;
 
