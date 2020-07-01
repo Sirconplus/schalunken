@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyledCommentForm } from './CommentForm.styles';
+import { TextField } from '@material-ui/core';
+import { NameAndEmail, StyledCommentForm } from './CommentForm.styles';
 
 interface CommentFormProps {
   title: string;
@@ -16,19 +17,12 @@ const CommentForm: React.FC<CommentFormProps> = (props) => {
     >
       <input name="options[redirect]" type="hidden" value={`${slug}#commented`} />
       <input name="options[title]" type="hidden" value={title} />
-      <input name="options[episode]" type="hidden" value={id} />
-      <label>
-        Name*
-        <input name="fields[name]" type="text" required />
-      </label>
-      <label>
-        Kommentar*
-        <textarea name="fields[message]" required />
-      </label>
-      <label>
-        E mail
-        <input type="email" name="fields[contact]" />
-      </label>
+      <input name="fields[episode]" type="hidden" value={id} />
+      <NameAndEmail>
+        <TextField name="fields[name]" id="name" label="Name" variant="outlined" required />
+        <TextField type="email" name="fields[contact]" id="email" label="E mail" variant="outlined" />
+      </NameAndEmail>
+      <TextField id="message" label="Kommentar" name="fields[message]" multiline rows={4} variant="outlined" required />
       <button type="submit">Schicken</button>
     </StyledCommentForm>
   );

@@ -10,9 +10,9 @@ interface UuidWidgetProps {
 
 export default class UuidControl extends React.PureComponent<UuidWidgetProps> {
   render(): JSX.Element {
-    const { value } = this.props;
+    const { value, onChange } = this.props;
     if (value === undefined || value === '') {
-      this.props.onChange(crypto.randomBytes(16).toString('hex'));
+      onChange(crypto.randomBytes(16).toString('hex'));
     }
     const { forID, classNameWrapper } = this.props;
     return (
@@ -21,7 +21,7 @@ export default class UuidControl extends React.PureComponent<UuidWidgetProps> {
         className={classNameWrapper}
         type="text"
         value={value}
-        onChange={(e) => this.props.onChange(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         disabled
       />
     );

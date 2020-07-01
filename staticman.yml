@@ -1,8 +1,8 @@
 comments:
-  allowedFields: ["name", "message", "contact"]
+  allowedFields: ["name", "message", "contact", "episode"]
   branch: "master"
   commitMessage: "Add Comment on '{options.title}'"
-  filename: "{options.episode}-{@timestamp}"
+  filename: "{fields.episode}-{@timestamp}"
   format: "yaml"
   generatedFields:
     date:
@@ -13,6 +13,6 @@ comments:
   moderation: true
   name: "www.schalunken.de"
   path: "src/comments"
-  requiredFields: ["name", "message"]
+  requiredFields: ["name", "message", "episode"]
   transforms:
     contact: "base64"
