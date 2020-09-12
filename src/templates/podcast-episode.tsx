@@ -32,7 +32,7 @@ export const PodcastEpisodeTemplate: React.FC = ({
           <img border="0" alt="Schalunken Cover" src="/img/schalunkencover.png" width="300px" height="300px"></img>
         </a>
       </header>
-      <audio controls>
+      <audio controls preload="none">
         <source src={audiofile} type="audio/mpeg" />
         <track default kind="captions" />
         Your browser does not support the audio tag
