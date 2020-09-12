@@ -114,6 +114,6 @@ description: >
   Gespielt von Wikipedia Nutzer IE <br>
 
   [https://commons.wikimedia.org/wiki/File:The_Entertainer_-_Scott_Joplin.ogg](https://commons.wikimedia.org/wiki/File:The_Entertainer_-_Scott_Joplin.ogg)
-audiofile: /podcast/schep10_smaller.mp3
+audiofile: /podcast/Schep10_smaller.mp3
 id: bb7836b860d4930bbb0893b5cbb0aff5
 ---
